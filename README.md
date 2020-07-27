@@ -36,6 +36,10 @@ gulp lighthouse
 
 Fitness admin panel CSS Grid implementation based on https://dribbble.com/shots/insert_dribble_url_part_here
 
+### Figma file
+
+https://www.figma.com/file/TXMamME9NWdXJrrAYakNEO
+
 ### Social media preview
 
 ![Social media preview](https://raw.githubusercontent.com/ozcanzaferayan/css-grid-dashboard-template/master/art/social/social.png)

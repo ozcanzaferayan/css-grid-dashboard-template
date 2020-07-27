@@ -42,7 +42,6 @@ gulp.task('sass', function() {
 
 /* ****************** FAVICON TASK ******************* */
 gulp.task("favicon", function() {
-    // Logo file: https://www.figma.com/file/BwQ3Bp3JmhtxQR5ZJsNpis
     return gulp.src("./img/logo.png").pipe(favicons({
             appName: "",
             appShortName: "",
