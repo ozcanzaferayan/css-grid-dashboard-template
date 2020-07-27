@@ -29,7 +29,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     font-family: $font-stack;
-    color: var(--text);
+    color: $text;
 }
 
 input {
