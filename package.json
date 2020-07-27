@@ -1,0 +1,33 @@
+{
+    "name": "grid-template",
+    "version": "1.0.0",
+    "description": "CSS grid template project for web apps",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ozcanzaferayan/grid-template.git"
+    },
+    "keywords": [
+        "css",
+        "grid"
+    ],
+    "author": "Zafer AYAN",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ozcanzaferayan/grid-template/issues"
+    },
+    "homepage": "https://github.com/ozcanzaferayan/grid-template#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-connect": "^5.7.0",
+        "gulp-favicons": "^2.4.0",
+        "gulp-sass": "^4.1.0",
+        "lighthouse": "^6.1.1",
+        "node-sass": "^4.14.1",
+        "opn": "^6.0.0"
+    }
+}
