@@ -22,6 +22,7 @@
     "homepage": "https://github.com/ozcanzaferayan/grid-template#readme",
     "dependencies": {},
     "devDependencies": {
+        "browser-sync": "^2.26.12",
         "gulp": "^4.0.2",
         "gulp-connect": "^5.7.0",
         "gulp-favicons": "^2.4.0",

@@ -1,20 +1,46 @@
-const path = require('path');
-const open = require('opn');
-var gulp = require('gulp');
-var favicons = require("favicons").stream,
-    log = require("fancy-log");
-var sass = require('gulp-sass');
-const connect = require('gulp-connect');
-const lighthouse = require('lighthouse');
-const printer = require('lighthouse/lighthouse-cli/printer');
+const path = require('path'),
+    open = require('opn'),
+    gulp = require('gulp'),
+    browserSync = require('browser-sync').create(),
+    favicons = require("favicons").stream,
+    log = require("fancy-log"),
+    sass = require('gulp-sass'),
+    connect = require('gulp-connect'),
+    lighthouse = require('lighthouse'),
+    printer = require('lighthouse/lighthouse-cli/printer'),
+    chromeLauncher = require('chrome-launcher'),
+    reportGenerator = require('lighthouse/lighthouse-core/report/report-generator');
 
-const chromeLauncher = require('chrome-launcher');
-const reportGenerator = require('lighthouse/lighthouse-core/report/report-generator');
 const PORT = 8080;
 
-sass.compiler = require('node-sass');
+/* ****************** WATCHER TASK ******************* */
 
-//#region favicon
+gulp.task('watch', function() {
+    gulp.series('serve')();
+    gulp.watch('./css/**/*.scss', gulp.series('sass'));
+});
+
+/* ****************** BUILD TASKS ****************** */
+gulp.task('serve', () => {
+    return browserSync.init({
+        server: {
+            baseDir: './',
+            injectChanges: true,
+        },
+    });
+});
+
+
+/* ****************** SASS TASK ******************* */
+gulp.task('sass', function() {
+    return gulp.src('./css/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./css'))
+        .pipe(browserSync.stream());
+});
+
+
+/* ****************** FAVICON TASK ******************* */
 gulp.task("favicon", function() {
     // Logo file: https://www.figma.com/file/BwQ3Bp3JmhtxQR5ZJsNpis
     return gulp.src("./img/logo.png").pipe(favicons({
@@ -52,26 +78,8 @@ gulp.task("favicon", function() {
         .on("error", log)
         .pipe(gulp.dest("./img/favicon"));
 });
-//#endregion
 
-//#region sass
-gulp.task('sass', function() {
-    return gulp.src('./css/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
-});
-//#endregion
-
-//#region watch
-
-gulp.task('watch', function() {
-    gulp.watch('./css/**/*.scss', gulp.series('sass'));
-});
-
-//#endregion
-
-
-//#region lighthouse
+/* ****************** LIGHTHOUSE TASK ******************* */
 
 gulp.task('lighthouse', function() {
     const flags = {
