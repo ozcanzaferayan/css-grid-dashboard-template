@@ -48,4 +48,4 @@ Fitness admin panel CSS Grid implementation based on https://dribbble.com/shots/
 
 #### Mobile UI
 
-![Screenshot](https://raw.githubusercontent.com/ozcanzaferayan/css-grid-dashboard-template/master/art/screenshots/mobile.jpg)
+![Screenshot](https://raw.githubusercontent.com/ozcanzaferayan/css-grid-dashboard-template/master/art/screenshots/mobile.png)
