@@ -27,7 +27,7 @@
         "gulp-connect": "^5.7.0",
         "gulp-favicons": "^2.4.0",
         "gulp-sass": "^4.1.0",
-        "lighthouse": "^6.1.1",
+        "lighthouse": "^9.6.7",
         "node-sass": "^4.14.1",
         "opn": "^6.0.0"
     }
